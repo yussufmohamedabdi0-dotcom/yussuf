@@ -1,3 +1,11 @@
+<script>
+var password = prompt("Enter Password to Access Finance System:");
+
+if (password !== "Yussuf11") {
+    document.write("<h1>Access Denied</h1><p>Incorrect Password</p>");
+    throw new Error("Access Denied");
+}
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
