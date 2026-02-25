@@ -100,6 +100,8 @@ input {
             </tr>
         </thead>
         <tbody id="expenseList"></tbody>
+</table>
+<h3>Total Expenses: $<span id="totalAmount">0</span></h3>
     </table>
 </section>
 
@@ -119,15 +121,25 @@ input {
 </section>
 
 <script>
+let total = 0;
+
 function addExpense() {
     let item = document.getElementById("item").value;
-    let amount = document.getElementById("amount").value;
+    let amount = parseFloat(document.getElementById("amount").value);
 
     if(item && amount) {
         let table = document.getElementById("expenseList");
         let row = table.insertRow();
         row.insertCell(0).innerText = item;
-        row.insertCell(1).innerText = amount;
+        row.insertCell(1).innerText = "$" + amount;
+
+        total += amount;
+        document.getElementById("totalAmount").innerText = total.toFixed(2);
+
+        document.getElementById("item").value = "";
+        document.getElementById("amount").value = "";
+    }
+}
     }
 }
 
