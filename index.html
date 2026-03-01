@@ -1,6 +1,3 @@
-<script>
-var password = prompt("Enter Password to Access Finance System:");
-
 if (password !== "Yussuf11") {
     document.write("<h1>Access Denied</h1><p>Incorrect Password</p>");
     throw new Error("Access Denied");
@@ -67,7 +64,7 @@ input {
 </style>
 </head>
 
-<body>
+<body style="display:none;">
 
 <header>
     <h1>Finance Records & Budget System</h1>
@@ -154,6 +151,14 @@ function saveNotes() {
     alert("Notes saved (locally in browser).");
 }
 </script>
+<script>
+let userPassword = prompt("Enter Password to Access Finance System:");
 
+if (userPassword === "Yussuf11") {
+    document.body.style.display = "block";
+} else {
+    document.body.innerHTML = "<h1 style='text-align:center;margin-top:100px;'>Access Denied</h1>";
+}
+</script>
 </body>
 </html>
