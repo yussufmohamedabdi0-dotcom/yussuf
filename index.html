@@ -2,16 +2,17 @@
 </script>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yussuf Finance Records System</title>
 
 <style>
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f2f4f8;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f3f4f6;
+  margin: 0;
+}
 }
 header {
     background: #0b3d91;
@@ -24,147 +25,116 @@ nav {
     padding: 10px;
     text-align: center;
 }
-nav a {
-    color: white;
-    margin: 15px;
-    text-decoration: none;
-    font-weight: bold;
+<!DOCTYPE html>
+<html>
+<head>
+<title>Finance Management System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f3f4f6;
+  display: flex;
 }
-section {
-    padding: 30px;
-    margin: 20px;
-    background: white;
-    border-radius: 10px;
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e3a8a;
+  color: white;
+  height: 100vh;
+  padding: 20px;
 }
-h2 {
-    color: #0b3d91;
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 30px;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 15px 0;
 }
-table, th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
+
+.sidebar a:hover {
+  opacity: 0.8;
 }
-button {
-    background: #0b3d91;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: 30px;
 }
-input {
-    padding: 8px;
-    margin: 5px;
+
+.topbar {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 </style>
 </head>
 
-<body style="display:none;">
+<body>
 
-<header>
-    <h1>Finance Records & Budget System</h1>
-    <p>Managed by Yussuf Abdi Mohamed</p>
-</header>
+<div class="sidebar">
+  <h2>Finance System</h2>
+  <a href="#">Dashboard</a>
+  <a href="#">Budget Records</a>
+  <a href="#">Invoices</a>
+  <a href="#">Documents</a>
+  <a href="#">Projects</a>
+</div>
 
-<nav>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#budget">Budget Records</a>
-    <a href="#invoice">Invoice Maker</a>
-    <a href="#notes">Finance Notes</a>
-</nav>
+<div class="main">
+  <div class="topbar">
+    <strong>Welcome, Yussuf</strong>
+  </div>
 
-<section id="dashboard">
-    <h2>Finance Dashboard</h2>
-    <p>This system is used to manage financial records, budgets, invoices, and finance documents.</p>
-</section>
+  <div class="cards">
+    <div class="card">
+      <h3>Total Budget</h3>
+      <p>$12,500</p>
+    </div>
 
-<section id="budget">
-    <h2>Budget & Expense Tracker</h2>
-    <input type="text" id="item" placeholder="Expense Item">
-    <input type="number" id="amount" placeholder="Amount">
-    <button onclick="addExpense()">Add Record</button>
+    <div class="card">
+      <h3>Expenses</h3>
+      <p>$4,200</p>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Amount ($)</th>
-            </tr>
-        </thead>
-        <tbody id="expenseList"></tbody>
-</table>
-<h3>Total Expenses: $<span id="totalAmount">0</span></h3>
-    </table>
-</section>
+    <div class="card">
+      <h3>Projects</h3>
+      <p>6 Active</p>
+    </div>
 
-<section id="invoice">
-    <h2>Simple Invoice Generator</h2>
-    <input type="text" id="client" placeholder="Client Name">
-    <input type="number" id="serviceAmount" placeholder="Amount">
-    <button onclick="generateInvoice()">Generate Invoice</button>
-    <p id="invoiceOutput"></p>
-</section>
+    <div class="card">
+      <h3>Documents</h3>
+      <p>25 Files</p>
+    </div>
+  </div>
 
-<section id="notes">
-    <h2>Finance Notes / Records</h2>
-    <textarea id="notesArea" rows="5" style="width:100%;" placeholder="Write your finance records here..."></textarea>
-    <br><br>
-    <button onclick="saveNotes()">Save Notes</button>
-</section>
+</div>
 
-<script>
-let total = 0;
-
-function addExpense() {
-    let item = document.getElementById("item").value;
-    let amount = parseFloat(document.getElementById("amount").value);
-
-    if(item && amount) {
-        let table = document.getElementById("expenseList");
-        let row = table.insertRow();
-        row.insertCell(0).innerText = item;
-        row.insertCell(1).innerText = "$" + amount;
-
-        total += amount;
-        document.getElementById("totalAmount").innerText = total.toFixed(2);
-
-        document.getElementById("item").value = "";
-        document.getElementById("amount").value = "";
-    }
-}
-    }
-}
-
-function generateInvoice() {
-    let client = document.getElementById("client").value;
-    let amount = document.getElementById("serviceAmount").value;
-    document.getElementById("invoiceOutput").innerText =
-        "Invoice for " + client + " | Total Amount: $" + amount;
-}
-
-function saveNotes() {
-    alert("Notes saved (locally in browser).");
-}
-</script>
-<script>
-let userPassword = prompt("Enter Password to Access Finance System:");
-
-if (userPassword === "Yussuf11") {
-    document.body.style.display = "block";
-} else {
-    document.body.innerHTML = "<h1 style='text-align:center;margin-top:100px;'>Access Denied</h1>";
-}
-</script>
-<script>
-let password = prompt("Enter Password to Access Finance System:");
-
-if (password === "Yussuf11") {
-    document.body.style.display = "block";
-} else {
-    document.body.innerHTML = "<h1 style='text-align:center;margin-top:100px;'>Access Denied - Incorrect Password</h1>";
-}
-</script>
 </body>
 </html>
+ 
